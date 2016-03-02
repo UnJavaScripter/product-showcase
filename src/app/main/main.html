@@ -1,0 +1,96 @@
+<header flex flex-sm="50" layout="row">
+  <figure flex>
+    <img src="../../assets/images/logo_144x144.png" alt="Awesome Company">
+  </figure>
+  <div flex flex-sm="50" align="end">
+    <div class="input-with-icon">
+      <label for="search-input">
+      <figure>
+        <img src="../../assets/images/search.png" height="17" width="15" alt="">
+      </figure>
+      </label>
+      <input id="search-input" type="text" placeholder="{{'Looking_for_something?' | translate}}" ng-model="main.searchInput">
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="items-container" flex layout="row">
+    <div class="item" ng-repeat="item in main.items | filter : {title: main.searchInput}" flex="25" flex-md="30" flex-sm="50">
+      <div class="item__content" flex layout="row" style="background-image: url('{{item.main_attachment.big}}')"> 
+        <div class="item__content__extras" ng-class="{'item__content__extras--corner': item.selling_price }">
+          <div class="item__content__extras__price" ng-if="item.selling_price">{{item.selling_price}}{{item.currency}}</div>
+          <div class="item__content__extras__actions" hide-on="sm" hide-on="md">
+            <div class="item__content__extras__actions__likes" layout="column" flex>
+              <figure>
+                <img 
+                  class="item__content__extras__actions__likes__btn" 
+                  alt="Like!"
+                  ng-src="{{item.liked && '../../assets/images/like_active.png' || '../../assets/images/like_default.png'}}"
+                  ng-click="item.liked = !item.liked; item.liked ? item.likes_count = item.likes_count + 1 : item.likes_count = item.likes_count - 1"
+                  height="32" width="32"
+                  >
+              </figure>
+              <div class="item__content__extras__actions__likes__count">
+                {{item.likes_count}}
+              </div>
+            </div>
+
+            <div class="item__content__extras__actions__shares" layout="column" flex>
+              <figure>
+                <img class="item__content__extras__actions__shares__btn" src="../../assets/images/share_default.png" height="32" width="32" alt="">
+              </figure>
+              <div class="item__content__extras__actions__shares__count">
+                012
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item__content__text" flex layout="column">
+          
+          <div class="item__content__text__description" flex layout="column">
+            <h2>{{item.title}}</h2>
+            <span>
+              <small translate>by</small>
+              {{item.author}}
+            </span>
+          </div>
+
+          <div class="item__content__text__actions" layout="row" flex hide-on="bg">
+            <div class="item__content__text__actions__likes" layout="row" flex="50">
+              <figure flex align="center">
+                <img  
+                  class="item__content__extras__actions__likes__btn" 
+                  alt="Like!"
+                  ng-src="{{item.liked && '../../assets/images/like_active.png' || '../../assets/images/like_dark.png'}}"
+                  ng-click="item.liked = !item.liked; item.liked ? item.likes_count = item.likes_count + 1 : item.likes_count = item.likes_count - 1"
+                  height="24" width="24"
+                  >
+              </figure>
+              <div class="item__content__text__actions__likes__count" flex>
+                {{item.likes_count}}
+              </div>
+            </div>
+
+            <div class="item__content__text__actions__shares" layout="row" flex="50">
+              <figure flex align="center">
+                <img  class="item__content__text__actions__shares__btn" src="../../assets/images/share_dark.png" height="24" width="24" alt="">
+              </figure>
+              <div class="item__content__text__actions__shares__count" flex>
+                012
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+    <div class="no-data" ng-if="main.noData && !main.searchInput" flex layout="column">
+      <span align="center">
+        <h2 translate>Seems_like_there_is_no_data_here</h2>
+        <span translate>You_can</span> <a ng-click="main.getMoreItems()" href="" translate>Retry</a>
+      </span>
+    </div>
+  </div>
+</main>

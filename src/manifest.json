@@ -1,0 +1,33 @@
+{
+  "short_name": "Awesome Company",
+  "name": "The Awesome Company Inc.",
+  "icons": [
+    {
+      "src": "/assets/images/logo_248x248.png",
+      "sizes": "248x248",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/logo_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/logo_144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/logo_96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+  ],
+
+  "start_url": "./index.html?o=i",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#999",
+  "prefer_related_applications": false
+
+}

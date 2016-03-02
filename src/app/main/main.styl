@@ -1,0 +1,126 @@
+header
+    background COLOR_WHITE
+    height 12em
+    padding-left 10%
+    padding-right 10%
+    @media screen and (max-width MEDIA_SM)
+        padding-left 5%
+        padding-right 5%
+    
+main
+    padding-left 2.5%
+    padding-right 2.5%
+
+.input-with-icon
+    padding-right 2em
+
+    &>input
+        background COLOR_GRAY_1
+        padding-left 1.75em
+        border-radius 0.8em
+        width 100%
+    &>label
+        position absolute
+        padding-top 0.25em
+        padding-left 0.25em
+
+.items-container
+    justify-content center
+    background COLOR_GRAY_1
+    padding-top 2em
+    padding-left 1em
+    @media screen and (max-width: MEDIA_SM)
+        padding-left 0
+        &>.item:nth-child(even)
+            & .item__content
+                margin-right 0!important
+
+
+.item
+    margin-bottom 2em
+        
+    &__content
+        background COLOR_GRAY_2
+        background-size cover
+        background-image url('../../assets/images/product.png')
+        background-repeat no-repeat
+        border 1px solid COLOR_GRAY_2
+        height 19.75em
+        height 40vh
+        min-height 17em
+        min-width 10em
+        margin 1em 1em 1em 0
+        position relative
+        &:hover  &__extras
+            &__actions
+                display block
+        &__extras
+            &--corner
+                width 0
+                height 0
+                border-style solid
+                border-width 80px 80px 0 0
+                border-color COLOR_WHITE transparent transparent transparent
+                align-self baseline
+            &__price
+                position absolute
+                top 0
+                padding-top 0.5em
+                padding-left 0.3em
+                font-weight bold
+            &__actions
+                background COLOR_WHITE_ALPHA_2
+                border-radius 3px
+                color COLOR_WHITE
+                position absolute
+                padding 0.2em
+                
+                right 0
+                top 1em
+                display none
+                &__likes
+                    justify-content center
+                    margin-bottom 0.5em
+                    &__btn
+                        cursor pointer
+                &__shares
+                    justify-content center
+                    &__btn
+                        cursor pointer
+        &__text
+            background COLOR_WHITE
+            width 100%
+            bottom 0
+            align-self flex-end
+            width 100%
+            left 0
+            justify-content center
+            &__description
+                margin-bottom 0.35em
+                &>h2
+                    font-size 1.4em
+                &>span
+                    font-size 0.9em
+            &__actions
+                justify-content space-between
+                width 100%
+                align-items flex-end
+                &__likes
+                    cursor pointer
+                    justify-content center
+                    box-shadow inset 0 0 2px COLOR_GRAY_2
+                    padding-top 0.5em
+                    padding-bottom 0.5em
+                    
+                &__shares
+                    cursor pointer
+                    justify-content center
+                    box-shadow inset 0 0 2px COLOR_GRAY_2
+                    padding-top 0.5em
+                    padding-bottom 0.5em
+
+.no-data
+    &>span
+        color COLOR_GRAY_3
+        &>span,a
+            color COLOR_GRAY_5

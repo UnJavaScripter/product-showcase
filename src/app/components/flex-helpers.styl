@@ -1,0 +1,195 @@
+/*
+| Flex
+|
+*/
+
+[flex]
+    display flex
+    flex 1 1 auto
+    align-items center
+    flex-wrap wrap
+    
+// Mixin
+_flex(width)
+    {"[flex='"}{width}{"']"}
+        min-width width+"%"!important
+        flex-grow 0
+        if(width % 5 != 0)
+            flex-basis width+(width/100)+"%"
+        else
+            flex-basis width+"%"
+        
+    
+_flex(5)
+_flex(10)
+_flex(15)
+_flex(20)
+_flex(25)
+_flex(30)
+_flex(35)
+_flex(40)
+_flex(45)
+_flex(50)
+_flex(55)
+_flex(60)
+_flex(65)
+_flex(70)
+_flex(75)
+_flex(80)
+_flex(85)
+_flex(90)
+_flex(95)
+_flex(100)
+
+_flex(33)
+
+
+/*
+| Flex-md
+|
+*/
+
+// Mixin
+_flex-md(width)
+    {"[flex-md='"}{width}{"']"}
+        min-width width+"%"
+        flex-grow 0
+        @media (min-width MEDIA_SM)  and (max-width MEDIA_MD)
+            if(width % 5 != 0)
+                flex-basis width+(width/100)+"%"
+            else
+                flex-basis width+"%"
+
+_flex-md(5)
+_flex-md(10)
+_flex-md(15)
+_flex-md(20)
+_flex-md(25)
+_flex-md(30)
+_flex-md(35)
+_flex-md(40)
+_flex-md(45)
+_flex-md(50)
+_flex-md(55)
+_flex-md(60)
+_flex-md(65)
+_flex-md(70)
+_flex-md(75)
+_flex-md(80)
+_flex-md(85)
+_flex-md(90)
+_flex-md(95)
+_flex-md(100)
+
+_flex-md(33)
+
+
+/*
+| Flex-sm
+|
+*/
+
+// Mixin
+_flex-sm(width)
+    {"[flex-sm='"}{width}{"']"}
+        min-width width+"%"
+        flex-grow 0
+        @media screen and (max-width MEDIA_SM)
+            if(width % 5 != 0)
+                flex-basis width+(width/100)+"%"
+            else
+                flex-basis width+"%"
+
+_flex-sm(5)
+_flex-sm(10)
+_flex-sm(15)
+_flex-sm(20)
+_flex-sm(25)
+_flex-sm(30)
+_flex-sm(35)
+_flex-sm(40)
+_flex-sm(45)
+_flex-sm(50)
+_flex-sm(55)
+_flex-sm(60)
+_flex-sm(65)
+_flex-sm(70)
+_flex-sm(75)
+_flex-sm(80)
+_flex-sm(85)
+_flex-sm(90)
+_flex-sm(95)
+_flex-sm(100)
+
+_flex-sm(33)
+
+/*
+| Offset
+|
+*/
+
+// Mixin
+_flex-offset(margin-left)
+    {"[flex-offset='"}{margin-left}{"']"}
+        if(margin-left % 5 != 0)
+            margin-left margin-left+(margin-left/100)+"%"
+        else
+            margin-left margin-left+"%"
+
+_flex-offset(5)
+_flex-offset(10)
+_flex-offset(15)
+_flex-offset(20)
+_flex-offset(25)
+_flex-offset(30)
+_flex-offset(35)
+_flex-offset(40)
+_flex-offset(45)
+_flex-offset(50)
+_flex-offset(55)
+_flex-offset(60)
+_flex-offset(65)
+_flex-offset(70)
+_flex-offset(75)
+_flex-offset(80)
+_flex-offset(85)
+_flex-offset(90)
+_flex-offset(95)
+_flex-offset(100)
+
+_flex-offset(33)
+
+/*
+| Layout (direction)
+|
+*/
+
+[layout="row"]
+    flex-direction row
+
+[layout="column"]
+    flex-direction column
+
+
+[layout-sm="row"]
+    @media screen and (max-width MEDIA_SM)
+        flex-direction row
+
+[layout-sm="column"]
+    @media screen and (max-width MEDIA_SM)
+        flex-direction column
+
+
+/*
+| Align
+|
+*/
+
+[align="start"]
+    justify-content flex-start
+
+[align="end"]
+    justify-content flex-end
+
+[align="center"]
+    justify-content center

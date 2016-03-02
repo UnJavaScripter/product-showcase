@@ -1,0 +1,64 @@
+COLOR_WHITE             = #ffffff
+COLOR_GRAY_1            = #f6f6f6
+COLOR_GRAY_2            = #E4E4E4
+COLOR_GRAY_3            = #C7C7C3
+COLOR_GRAY_4            = #9a9a9a
+COLOR_GRAY_5            = #666
+
+COLOR_BLACK             = #000
+COLOR_WHITE_ALPHA_2     = rgba(255, 255, 255, 0.2)
+
+MEDIA_SM        = 599px
+MEDIA_MD        = 960px
+
+body
+    margin 0
+    background COLOR_WHITE
+    font-family 'Open Sans', sans-serif
+
+input, figure, img
+    outline none
+
+h1,h2,h3,h4,h5,h6
+    margin 0
+    font-weight normal
+
+input
+    border none
+    padding 0.5em
+    vertical-align middle
+
+small
+    color COLOR_GRAY_5
+
+figure
+    margin 0
+    &>img
+        vertical-align middle
+
+
+_hide-on(size)  
+    if size == md
+        {"[hide-on='"}{size}{"']"}
+            @media screen and (max-width: MEDIA_SM)
+                display none!important
+
+    else if size == sm
+        {"[hide-on='"}{size}{"']"}
+            @media (min-width: MEDIA_SM) and (max-width: MEDIA_MD)
+                display none!important
+    
+    else if size == bg
+        {"[hide-on='"}{size}{"']"}
+            @media (min-width: MEDIA_MD)
+                display none!important
+
+_hide-on(md)
+_hide-on(sm)
+_hide-on(bg)
+
+.toast-black
+    background COLOR_BLACK
+    padding 1.4em!important
+    &>.toast-progress
+        background COLOR_GRAY_2!important
