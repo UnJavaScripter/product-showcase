@@ -103,7 +103,6 @@ app.get('/api/items', (req, res) => {
 });
 
 app.get('/api/item/:id', (req, res) => {
- console.log(req.params.id);
   respond(res, 200, DataArr.filter(e => e.id == req.params.id));
 });
 
@@ -130,4 +129,4 @@ app.delete('/api/item/:id', (req, res) => {
 
 
 
-app.listen(3002, _ => console.log('API running on port 3002'));
+app.listen(3000, _ => console.log('API running on port 3000'));

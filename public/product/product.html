@@ -1,0 +1,18 @@
+
+<a class="go-back" href="#/">Volver</a>
+
+<main class="product-container">
+  <section class="item">
+    <div class="item-data-top">
+      <div class="item-price-container">
+        <div class="item-price">
+          {{product.item.currency.symbol}}{{product.item.price}}
+        </div>
+      </div>
+      <img class="item-pic" ng-src="{{product.item.pic}}" alt="{{product.item.name}}" title="{{product.item.name}} by {{product.item.seller}}">
+    </div>
+    <div class="item-data">
+      <p class="item-name">{{product.item.name}} by {{product.item.seller}}</p>
+    </div>
+  </section>
+</main>

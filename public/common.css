@@ -1,4 +1,9 @@
 body {
   margin: 0;
   font-family: 'sans-serif';
+  background-color: #f3f3f3;
+}
+
+.text-center {
+  text-align: center;
 }

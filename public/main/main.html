@@ -1,7 +1,7 @@
 <main>
 
   <section class="header">
-    <h1>Header</h1>
+    <h1 class="text-center">Products</h1>
     <div>
       <a href="#/about">About</a>
     </div>
@@ -9,7 +9,7 @@
 
   <section class="content">
     <div class="items-container">
-      <div class="item" ng-repeat="item in main.items">
+      <a class="item" ng-repeat="item in main.items" ng-href="#/product/{{item.id}}">
         <div class="item-data-top">
           <div class="item-price-container">
             <div class="item-price">
@@ -21,7 +21,7 @@
         <div class="item-data">
           <p class="item-name">{{item.name}} by {{item.seller}}</p>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 
