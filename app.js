@@ -5,10 +5,11 @@ const bodyParser= require('body-parser')
 const app = express();
 
 
-
 // Our database will be an array
 let DataArr = [];
 
+
+// Dummy data
 
 const products = [
   "Pendiente","Manibela","Patata","Rueda","Pala","Silla","Pantalón","Bufanda","Horno","Zapato","Cuchara","Plato", "Mojarra"
@@ -32,7 +33,11 @@ const generateDummyData = _ => {
   name: products[Math.floor(Math.random() * (products.length))] + " " + attrs[Math.floor(Math.random() * (attrs.length))],
   seller: brands[Math.floor(Math.random() * (brands.length))],
   pic: `https://unsplash.it/300/300/?random&time=${randomNumber}`,
-  price: Math.ceil(randomNumber * 100)
+  price: Math.ceil(randomNumber * 100),
+  currency: {
+    name: 'USD',
+    symbol: '$'
+  }
  };
   
 }
@@ -40,11 +45,6 @@ const generateDummyData = _ => {
 for(let i = 0 ; i < Math.ceil(Math.random() * 100)+20 ; i++){
  DataArr.push(generateDummyData());
 }
-
-
-
-
-
 
 
 
@@ -81,7 +81,8 @@ let respond = (res, status, data) => {
 
 
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+app.use(express.static(__dirname + '/public'));
 
 // CORS
 app.use((req, res, next) => {
@@ -92,24 +93,26 @@ app.use((req, res, next) => {
 });
 
 
+app.get('/', function(req, res) {
+    res.sendFile(__dirname + '/index.html');
+});
 
 // API
-
-app.get('/api/things', (req, res) => {
+app.get('/api/items', (req, res) => {
   respond(res, 200, DataArr);
 });
 
-app.get('/api/things/:id', (req, res) => {
+app.get('/api/item/:id', (req, res) => {
  console.log(req.params.id);
   respond(res, 200, DataArr.filter(e => e.id == req.params.id));
 });
 
-app.post('/api/things', (req, res) => {
+app.post('/api/items', (req, res) => {
   DataArr.push(req.body);
   respond(res, 201);
 });
 
-app.put('/api/things/:id', (req, res) => {
+app.put('/api/item/:id', (req, res) => {
  if(req.body._id) {
     delete req.body._id;
   }
@@ -120,11 +123,11 @@ app.put('/api/things/:id', (req, res) => {
 
 });
 
-app.delete('/api/things/:id', (req, res) => {
+app.delete('/api/item/:id', (req, res) => {
   DataArr = DataArr.filter(e => e.id !== req.params.id);
   respond(e, 200, []);
 });  
 
 
 
-app.listen(3000, _ => console.log('API running on port 3000'));
+app.listen(3002, _ => console.log('API running on port 3002'));

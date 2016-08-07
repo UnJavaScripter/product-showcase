@@ -1,0 +1,28 @@
+<main>
+
+  <section class="header">
+    <h1>Header</h1>
+    <div>
+      <a href="#/about">About</a>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="items-container">
+      <div class="item" ng-repeat="item in main.items">
+        <div class="item-data-top">
+          <div class="item-price-container">
+            <div class="item-price">
+              {{item.currency.symbol}}{{item.price}}
+            </div>
+          </div>
+          <img class="item-pic" ng-src="{{item.pic}}" alt="{{item.name}}" title="{{item.name}} by {{item.seller}}">
+        </div>
+        <div class="item-data">
+          <p class="item-name">{{item.name}} by {{item.seller}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
