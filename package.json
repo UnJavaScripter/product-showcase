@@ -1,0 +1,15 @@
+{
+  "name": "angular-express-demo",
+  "version": "1.0.0",
+  "description": "A demo of an Express app serving an Angular 1.x client",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "UnJavaScripter",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  }
+}
